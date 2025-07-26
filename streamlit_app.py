@@ -21,7 +21,7 @@ else:
 
     # Let the user upload a file via `st.file_uploader`.
     uploaded_file = st.file_uploader(
-        "Upload a document (.txt or .md)", type=("txt", "md")
+        "Upload a document (.txt or .md or .csv)", type=("txt", "md", "csv")
     )
 
     # Ask the user for a question via `st.text_area`.
@@ -34,7 +34,7 @@ else:
     if uploaded_file and question:
 
         # Process the uploaded file and question.
-        document = uploaded_file.read().decode()
+        document = uploaded_file.read()
         messages = [
             {
                 "role": "user",
